@@ -4,103 +4,39 @@
  */
 package model;
 
-import java.util.Date;
-
 /**
  *
- * @author Admin
+ * @author admin
  */
 public class User {
-
-    private int id;
-    private String fristName;
-    private String lastName;
-    private Date birthday;
-    private boolean gender;
-    private String email;
-    private String phone;
-    private String address;
-    private int accountID;
+    String username, password, fullName, phone, address;
+    UserRole role;
 
     public User() {
     }
 
-    public User(int id, String fristName, String lastName, Date birthday, boolean gender, String email, String phone, String address, int accountID) {
-        this.id = id;
-        this.fristName = fristName;
-        this.lastName = lastName;
-        this.birthday = birthday;
-        this.gender = gender;
-        this.email = email;
-        this.phone = phone;
-        this.address = address;
-        this.accountID = accountID;
+    public String getUsername() {
+        return username;
     }
 
-    public User(String fristName, String lastName, String email, String phone, int accountID) {        
-        this.fristName = fristName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phone = phone;
-        this.accountID = accountID;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public int getId() {
-        return id;
+    public String getPassword() {
+        return password;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getFristName() {
-        return fristName;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFristName(String fristName) {
-        this.fristName = fristName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
-
-    public boolean isGender() {
-        return gender;
-    }
-
-    public String getGender() {
-        Boolean a = true;
-        String trueOut = "true";
-        String falseOut = "false";
-        if (a.compareTo(gender) == 0) {
-            return trueOut;
-        }
-        return falseOut;
-    }
-
-    public void setGender(boolean gender) {
-        this.gender = gender;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getPhone() {
@@ -119,17 +55,13 @@ public class User {
         this.address = address;
     }
 
-    public int getAccountID() {
-        return accountID;
+    public UserRole getRole() {
+        return role;
     }
 
-    public void setAccountID(int accountID) {
-        this.accountID = accountID;
+    public void setRole(UserRole role) {
+        this.role = role;
     }
-
-    @Override
-    public String toString() {
-        return "User{" + "id=" + id + ", fristName=" + fristName + ", lastName=" + lastName + ", birthday=" + birthday + ", gender=" + gender + ", email=" + email + ", phone=" + phone + ", address=" + address + ", accountID=" + accountID + '}';
-    }
-
+    
+    
 }
