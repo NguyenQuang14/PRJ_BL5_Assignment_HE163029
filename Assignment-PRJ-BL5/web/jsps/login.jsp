@@ -16,7 +16,7 @@
         
         <h1> Dang nhap </h1>
         <form action="${pageContext.request.contextPath}/login" method="POST"">
-            <label>Ten nguoi dung</label>
+            <label>Tai khoan</label>
             <input type="text" name="username" />
             <label>Mat khau</label>
             <input type="password" name="password" />
