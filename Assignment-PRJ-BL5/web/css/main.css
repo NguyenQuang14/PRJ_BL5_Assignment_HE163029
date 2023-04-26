@@ -1,22 +1,40 @@
 body {
-    margin: 0px;
+    margin: 0px auto;
+    font-family: Arial;
+    text-align: center;
 }
 
 #logo {
     width: 48px;
     height: 48px;
     background-size: cover;
+    float: left;
 }
 
 .btn-area {
+    float: left;
+}
 
+table {
+    margin: 0 auto;
+    width: 80%;
+    border-collapse: collapse;
+}
+
+td,th,tr {
+    border: 1px solid black;
+}
+
+table img {
+    width: 25%;
+    height: 25%;
 }
 
 .nav-bar {
     background-color: red;
-    padding: 12px;
-    width: 100%;
-    height: 64px;
+    padding: 1%;
+    width: 98%;
+    height: 52px;
     vertical-align: top;
 }
 

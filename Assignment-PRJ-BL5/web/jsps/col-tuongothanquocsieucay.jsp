@@ -26,7 +26,7 @@
         <div class="catalog">
             <c:forEach items="${requestScope.dsSanPham}" var="sp">
                 <div class="product" style="background-color:#aaa;">
-                    <img src="${pageContext.request.contextPath}/images/${sp.getLinkAnh()}"/>
+                    <img onclick="toURL('${pageContext.request.contextPath}/purchase?pid=${sp.getMaSp()}')" src="${pageContext.request.contextPath}/images/${sp.getLinkAnh()}"/>
                     <p><b>${sp.getTenSp()}</b></p>
                     <p>${sp.getGiaBan()}₫</p>
                 </div>
@@ -34,7 +34,11 @@
             
             
          </div>
-        
+        <script>
+            function toURL(url) {
+                window.location.href = url;
+            }
+        </script>
         <%@include file="footer.jsp" %>
     </body>
 </html>

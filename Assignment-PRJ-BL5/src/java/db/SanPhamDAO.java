@@ -50,6 +50,65 @@ public class SanPhamDAO extends DBContext {
         }
     }
     
+    public void update(SanPham sp) {
+        PreparedStatement stm = null;
+        try {
+            String sql = "update SanPham\n" +
+                         "set MaDanhMuc = ?, TenSanPham = ?, GiaBan = ?,\n" +
+                         "MotaSanPham = ?, LinkAnh = ?\n" +
+                         "where MaSanPham = ?";
+            stm = connection.prepareStatement(sql);
+            System.out.println(sp.getdMuc().getMaDMuc());
+            System.out.println(sp.getMaSp());
+            stm.setInt(1, sp.getdMuc().getMaDMuc());
+            stm.setString(2, sp.getTenSp());
+            stm.setInt(3, sp.getGiaBan());
+            stm.setString(4, sp.getMoTa());
+            stm.setString(5, sp.getLinkAnh());
+            stm.setInt(6, sp.getMaSp());
+            stm.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+
+            try {
+                stm.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                connection.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    public void delete(int masp) {
+        PreparedStatement stm = null;
+        try {
+            String sql = "delete from SanPham\n" +
+                         "where MaSanPham = ?";
+            stm = connection.prepareStatement(sql);
+            stm.setInt(1, masp);
+            stm.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+
+            try {
+                stm.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                connection.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
     public ArrayList<SanPham> getByStringContain(String sample) {
         ArrayList<SanPham> list = new ArrayList<>();
         PreparedStatement stm = null;
@@ -111,6 +170,58 @@ public class SanPhamDAO extends DBContext {
 "where s.MaDanhMuc = ?";
             stm = connection.prepareStatement(sql);
             stm.setInt(1, danhMuc);
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                SanPham s = new SanPham();
+                s.setMaSp(rs.getInt("MaSanPham"));
+                
+                DanhMuc dm = new DanhMuc();
+                dm.setMaDMuc(rs.getInt("MaDanhMuc"));
+                dm.setTenDMuc(rs.getString("TenDanhMuc"));
+                
+                s.setdMuc(dm);
+                
+                s.setMoTa(rs.getString("MotaSanPham"));
+                s.setTenSp(rs.getString("TenSanPham"));
+                s.setGiaBan(rs.getInt("GiaBan"));
+                s.setLinkAnh(rs.getString("LinkAnh"));
+                
+                list.add(s);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                rs.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            try {
+                stm.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                connection.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return list;
+    }
+    
+    public ArrayList<SanPham> getByDMucAndTuKhoa(int maDMuc, String sample) {
+        ArrayList<SanPham> list = new ArrayList<>();
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        try {
+            String sql = "select s.MaSanPham, s.MaDanhMuc, ds.TenDanhMuc, s.TenSanPham, s.GiaBan, s.MotaSanPham, s.LinkAnh from SanPham s\n" +
+                            "inner join DanhMucSanPham ds on s.MaDanhMuc = ds.MaDanhMuc\n" +
+                            "where s.MaDanhMuc = ? and s.TenSanPham like ?";
+            stm = connection.prepareStatement(sql);
+            stm.setInt(1, maDMuc);
+            stm.setString(2, "%" + sample + "%");
             rs = stm.executeQuery();
             while (rs.next()) {
                 SanPham s = new SanPham();
