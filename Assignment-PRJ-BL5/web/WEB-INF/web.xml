@@ -24,6 +24,14 @@
         <servlet-name>profile</servlet-name>
         <servlet-class>controller.ProfileController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>addprod</servlet-name>
+        <servlet-class>controller.admin.AddProductController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>manage</servlet-name>
+        <servlet-class>controller.admin.ManageController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>home</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -47,6 +55,14 @@
     <servlet-mapping>
         <servlet-name>profile</servlet-name>
         <url-pattern>/profile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addprod</servlet-name>
+        <url-pattern>/admin/addproduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>manage</servlet-name>
+        <url-pattern>/admin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

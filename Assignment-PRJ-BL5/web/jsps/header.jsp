@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link rel="stylesheet" href="/Assignment-PRJ-BL5/css/main.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
     </head>
     <body>
         <div class="nav-bar">
@@ -25,6 +25,9 @@
                 </div>
             <button class="dropbtn">Câu chuyện ẩm thực</button>
             <div style="float: right">
+                <c:if test="${sessionScope.user.getRole().getRoleName().equals('admin')}">
+                        <button class="dropbtn" onclick="toURL('${pageContext.request.contextPath}/admin')">Quan ly</button>
+                    </c:if>
                 <button class="dropbtn">Tìm kiếm</button>
                 
                     <c:if test="${sessionScope.user != null}">

@@ -15,7 +15,7 @@
         <%@include file="header.jsp" %>
         
         <h1> Dang nhap </h1>
-        <form action="login" method="POST">
+        <form action="${pageContext.request.contextPath}/login" method="POST"">
             <label>Ten nguoi dung</label>
             <input type="text" name="username" />
             <label>Mat khau</label>

@@ -28,7 +28,7 @@
                 <div class="product" style="background-color:#aaa;">
                     <img src="${pageContext.request.contextPath}/images/${sp.getLinkAnh()}"/>
                     <p><b>${sp.getTenSp()}</b></p>
-                    <p>${sp.getGiaBan()}d</p>
+                    <p>${sp.getGiaBan()}₫</p>
                 </div>
             </c:forEach>
             

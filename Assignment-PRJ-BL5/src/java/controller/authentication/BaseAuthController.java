@@ -25,7 +25,7 @@ public abstract class BaseAuthController extends HttpServlet {
         if(isAuthenticated(req)) {
             doPost(req, resp, (User)req.getSession().getAttribute("user"));
         } else {
-            req.getRequestDispatcher("jsps/login.jsp").forward(req,resp);
+            req.getRequestDispatcher("/jsps/login.jsp").forward(req,resp);
         }
     }
 
@@ -34,7 +34,7 @@ public abstract class BaseAuthController extends HttpServlet {
         if(isAuthenticated(req)) {
             doGet(req, resp, (User)req.getSession().getAttribute("user"));
         } else {
-            req.getRequestDispatcher("jsps/login.jsp").forward(req,resp);
+            req.getRequestDispatcher("/jsps/login.jsp").forward(req,resp);
         }
     }
     

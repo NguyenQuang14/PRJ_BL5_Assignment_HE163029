@@ -29,7 +29,7 @@ public class TuongOtSieuCayCollectionController extends HttpServlet {
         SanPhamDAO ctx = new SanPhamDAO();
         ArrayList<SanPham> ls = ctx.getByDanhMuc(2);
         req.setAttribute("dsSanPham", ls);
-        req.getRequestDispatcher("../jsps/col-tuongothanquocsieucay.jsp").forward(req,resp);
+        req.getRequestDispatcher("/jsps/col-tuongothanquocsieucay.jsp").forward(req,resp);
     }
     
 }
