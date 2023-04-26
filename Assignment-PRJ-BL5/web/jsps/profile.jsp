@@ -10,8 +10,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <%@include file="header.jsp" %>
+        <h1>Thong tin nguoi dung</h1>
+        <p><b>Ho va ten:</b> ${sessionScope.user.getFullName()}</p>
+        <p><b>SÐT:</b> ${sessionScope.user.getPhone()}</p>
+        <p><b>Dia chi:</b> ${sessionScope.user.getAddress()}</p>
+        <a href="${pageContext.request.contextPath}/passwordreset">Doi mat khau</a>
+        <%@include file="footer.jsp" %>
     </body>
 </html>

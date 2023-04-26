@@ -15,12 +15,19 @@
         <%@include file="header.jsp" %>
         
         <h1> Dang nhap </h1>
-        <form action="${pageContext.request.contextPath}/login" method="POST"">
+        <c:if test="${requestScope.msg ne null}">
+                <p style="color: blue">
+                    ${requestScope.msg}
+                </p>
+        </c:if>
+        <form action="${pageContext.request.contextPath}/login" method="POST">
             <label>Tai khoan</label>
-            <input type="text" name="username" />
+            <input type="text" name="username" /> <br/>
             <label>Mat khau</label>
-            <input type="password" name="password" />
+            <input type="password" name="password" /> <br/>
+            <label>Chua co tai khoan? <a href="${pageContext.request.contextPath}/register">Dang ky ngay!</a></label><br/>
             <input type="submit" value="Dang nhap" />
+            
         </form>
         
         <%@include file="footer.jsp" %>

@@ -31,7 +31,12 @@
                 <button class="dropbtn">Tìm kiếm</button>
                 
                     <c:if test="${sessionScope.user != null}">
-                        <button class="dropbtn" onclick="toURL('${pageContext.request.contextPath}/profile')">Tai khoan</button>
+                        <div class="dropdown">
+                            <button class="dropbtn" onclick="toURL('${pageContext.request.contextPath}/profile')">Tai khoan</button>
+                                <div class="dropdown-content">
+                                    <a href="${pageContext.request.contextPath}/logout">Dang xuat</a>
+                                </div>
+                         </div>
                     </c:if>
                     <c:if test="${sessionScope.user == null}">
                         <button class="dropbtn" onclick="toURL('${pageContext.request.contextPath}/login')">Dang nhap</button>

@@ -32,6 +32,22 @@
         <servlet-name>manage</servlet-name>
         <servlet-class>controller.admin.ManageController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>resetpass</servlet-name>
+        <servlet-class>controller.ResetPasswordController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>registeracc</servlet-name>
+        <servlet-class>controller.RegisterController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>search</servlet-name>
+        <servlet-class>controller.SearchController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>purchaseitem</servlet-name>
+        <servlet-class>controller.PurchaseController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>home</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -63,6 +79,22 @@
     <servlet-mapping>
         <servlet-name>manage</servlet-name>
         <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>resetpass</servlet-name>
+        <url-pattern>/passwordreset</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>registeracc</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>search</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>purchaseitem</servlet-name>
+        <url-pattern>/purchase</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
